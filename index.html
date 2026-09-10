@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PT Havel Mitra International — Packaging Solutions for a Better Business.">
+<title>PT Havel Mitra International | Packaging Solutions</title>
+<link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+<style>
+:root{--navy:#0b3776;--navy2:#062451;--blue:#1764b5;--gold:#d6ad43;--gold2:#f2d77d;--ink:#182033;--muted:#657084;--soft:#f5f8fc;--white:#fff;--line:#e5eaf1;--shadow:0 20px 60px rgba(11,55,118,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),#fff0a8);z-index:2000}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:.35s}
+.nav.scrolled{padding:10px 0;background:rgba(255,255,255,.94);box-shadow:0 10px 35px rgba(0,0,0,.08);backdrop-filter:blur(14px)}
+.nav-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{display:flex;align-items:center;gap:12px;min-width:205px}
+.logo img{width:180px;height:82px;object-fit:cover;object-position:center;border-radius:8px;background:#fff}
+.nav.scrolled .logo img{width:150px;height:68px}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{padding:10px 12px;font-size:13px;font-weight:700;color:#fff;border-radius:10px;transition:.25s}
+.nav.scrolled .nav-links a{color:var(--ink)}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.12);color:var(--gold2)}
+.nav.scrolled .nav-links a:hover,.nav.scrolled .nav-links a.active{background:#eef4fb;color:var(--navy)}
+.nav-cta{background:var(--gold)!important;color:#13243d!important;padding:11px 16px!important;border-radius:999px!important}
+.menu{display:none;border:0;background:transparent;color:#fff;font-size:28px;cursor:pointer}
+.nav.scrolled .menu{color:var(--navy)}
+.hero{min-height:780px;background:linear-gradient(135deg,var(--navy2),var(--navy) 55%,#0d5699);position:relative;overflow:hidden;color:#fff;display:flex;align-items:center}
+.hero:before{content:"";position:absolute;width:680px;height:680px;border:110px solid rgba(255,255,255,.06);border-radius:50%;right:-250px;top:-270px}
+.hero:after{content:"";position:absolute;width:420px;height:420px;background:rgba(214,173,67,.11);border-radius:50%;right:-150px;bottom:-180px;filter:blur(1px)}
+.grid-bg{position:absolute;inset:0;opacity:.08;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to right,transparent,black)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:70px;padding:145px 0 85px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--gold2);margin-bottom:22px}
+.eyebrow:before{content:"";width:35px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(48px,6vw,82px);line-height:.98;letter-spacing:-3px;margin-bottom:22px}
+.hero h1 span{color:#2f80d1}
+.hero p{font-size:18px;line-height:1.75;color:rgba(255,255,255,.78);max-width:600px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 21px;border-radius:999px;font-size:14px;font-weight:800;transition:.25s;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(--gold);color:#102b50;box-shadow:0 10px 25px rgba(214,173,67,.22)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 32px rgba(214,173,67,.3)}
+.btn-outline{border-color:rgba(255,255,255,.3);color:#fff;background:rgba(255,255,255,.05)}
+.btn-outline:hover{background:#fff;color:var(--navy);transform:translateY(-3px)}
+.hero-visual{position:relative}
+.hero-card{background:#fff;border-radius:24px;padding:11px;box-shadow:0 35px 90px rgba(0,0,0,.28);transform:rotate(2deg);transition:.5s}
+.hero-card:hover{transform:rotate(0) translateY(-8px)}
+.hero-card img{width:100%;border-radius:16px;aspect-ratio:16/9;object-fit:cover}
+.floating-badge{position:absolute;left:-28px;bottom:30px;background:#fff;color:var(--ink);border-radius:18px;padding:15px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;animation:float 4s ease-in-out infinite}
+.badge-icon{width:42px;height:42px;border-radius:12px;background:#edf5ff;color:var(--navy);display:grid;place-items:center;font-size:20px}
+.floating-badge strong{display:block;font-size:15px}.floating-badge small{color:var(--muted);font-size:11px}
+@keyframes float{50%{transform:translateY(-10px)}}
+.section{padding:105px 0;position:relative}
+.section.alt{background:var(--soft)}
+.section-head{max-width:760px;margin-bottom:55px}.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+.kicker{font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px}.section h2{font-size:clamp(34px,4vw,54px);letter-spacing:-1.8px;line-height:1.05;margin-bottom:17px}.lead{color:var(--muted);font-size:16px;line-height:1.8}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about-visual{position:relative}.about-visual:after{content:"";position:absolute;left:-22px;bottom:-22px;width:130px;height:130px;border:28px solid var(--gold);border-radius:50%;opacity:.35;z-index:-1}.about-img{border-radius:26px;box-shadow:var(--shadow);aspect-ratio:16/9;object-fit:cover}
+.about-copy p{color:var(--muted);line-height:1.85;margin-bottom:18px}.about-points{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:28px}.point{padding:17px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.04)}.point b{display:block;color:var(--navy);margin-bottom:6px}.point span{font-size:13px;color:var(--muted);line-height:1.5}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.vm-card{padding:34px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:0 15px 45px rgba(0,0,0,.05);position:relative;overflow:hidden}.vm-card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-45px;top:-50px;background:rgba(23,100,181,.08)}.vm-card.gold{background:linear-gradient(145deg,#fff,#fffaf0)}.vm-card h3{font-size:28px;margin-bottom:15px}.vm-card p,.vm-card li{color:var(--muted);line-height:1.8}.vm-card ul{padding-left:20px}.num{font-size:11px;font-weight:900;letter-spacing:2px;color:var(--gold);display:block;margin-bottom:15px}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px;min-height:210px;transition:.35s;position:relative;overflow:hidden}.service:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:#d8e4f2}.service:after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;right:-40px;bottom:-50px;background:rgba(214,173,67,.12)}.service-icon{width:46px;height:46px;border-radius:14px;background:#edf5ff;color:var(--navy);display:grid;place-items:center;font-size:21px;margin-bottom:18px}.service h3{font-size:17px;margin-bottom:10px}.service p{font-size:13px;line-height:1.65;color:var(--muted)}
+.advantages{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.adv{padding:28px;border-radius:22px;background:var(--navy);color:#fff;min-height:250px;position:relative;overflow:hidden}.adv:nth-child(even){background:#fff;color:var(--ink);border:1px solid var(--line)}.adv-number{font-size:46px;font-weight:900;opacity:.12;position:absolute;right:18px;top:10px}.adv-icon{font-size:28px;color:var(--gold);margin-bottom:30px}.adv h3{font-size:17px;margin-bottom:10px}.adv p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.72)}.adv:nth-child(even) p{color:var(--muted)}
+.process{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:15px}.process:before{content:"";position:absolute;left:8%;right:8%;top:53px;height:2px;background:#d8e3f1}.step{position:relative;text-align:center}.step-num{position:relative;z-index:1;width:70px;height:70px;margin:auto auto 22px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid var(--navy);color:var(--navy);font-weight:900;box-shadow:0 0 0 8px #f5f8fc}.step h3{font-size:14px;margin-bottom:9px}.step p{font-size:12px;line-height:1.55;color:var(--muted)}
+.industry-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}.industry-list{display:flex;flex-wrap:wrap;gap:10px}.pill{padding:12px 16px;border:1px solid #dce5ef;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#31435c;transition:.25s}.pill:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-2px)}.industry-art{background:linear-gradient(135deg,#0a326a,#1764b5);border-radius:28px;padding:18px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.industry-art img{border-radius:18px;width:100%;aspect-ratio:16/9;object-fit:cover;opacity:.92}.industry-art:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-80px;bottom:-90px;background:rgba(214,173,67,.55)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.gallery-card{position:relative;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line);cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.05)}.gallery-card img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.5s}.gallery-card:hover img{transform:scale(1.05)}.gallery-overlay{position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(transparent,rgba(5,20,42,.85));color:#fff;transform:translateY(12px);opacity:0;transition:.35s}.gallery-card:hover .gallery-overlay{transform:translateY(0);opacity:1}.gallery-overlay strong{font-size:15px}.gallery-overlay small{display:block;margin-top:5px;color:rgba(255,255,255,.7)}
+.cta{padding:75px 0;background:linear-gradient(135deg,#082e65,#1764b5);color:#fff;position:relative;overflow:hidden}.cta:before{content:"";position:absolute;width:420px;height:420px;border:80px solid rgba(255,255,255,.06);border-radius:50%;right:-180px;top:-190px}.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;position:relative;z-index:1}.cta h2{font-size:clamp(30px,4vw,48px);margin-bottom:10px;letter-spacing:-1.5px}.cta p{color:rgba(255,255,255,.7);line-height:1.7}.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;align-items:start}.contact-cards{display:grid;gap:12px}.contact-card{display:flex;gap:15px;padding:18px;border:1px solid var(--line);border-radius:17px;background:#fff;transition:.25s}.contact-card:hover{transform:translateX(5px);box-shadow:0 10px 30px rgba(0,0,0,.06)}.contact-icon{width:42px;height:42px;border-radius:12px;background:#edf5ff;color:var(--navy);display:grid;place-items:center;flex:none}.contact-card small{display:block;color:var(--muted);margin-bottom:4px}.contact-card strong{font-size:14px;line-height:1.5}.map-card{min-height:330px;border-radius:25px;background:linear-gradient(145deg,#eef4fa,#fff);border:1px solid var(--line);padding:32px;position:relative;overflow:hidden}.map-card:before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(23,100,181,.08);right:-120px;top:-100px}.map-card h3{font-size:27px;margin-bottom:13px}.map-card p{color:var(--muted);line-height:1.8;max-width:550px}.map-card .btn{margin-top:25px}
+.footer{background:#061d3c;color:#fff;padding:35px 0}.footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6}.footer strong{color:var(--gold2)}
+.wa{position:fixed;right:24px;bottom:24px;z-index:999;width:58px;height:58px;border-radius:50%;background:#1fb15c;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.22);font-size:25px;transition:.25s}.wa:hover{transform:translateY(-5px) scale(1.04)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:none}.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}.delay-3{transition-delay:.24s}.delay-4{transition-delay:.32s}
+.lightbox{position:fixed;inset:0;background:rgba(4,14,30,.92);z-index:3000;display:none;align-items:center;justify-content:center;padding:25px}.lightbox.open{display:flex}.lightbox img{max-width:min(1100px,95vw);max-height:88vh;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.45)}.close{position:absolute;right:25px;top:18px;color:#fff;background:transparent;border:0;font-size:38px;cursor:pointer}
+@media(max-width:1000px){.nav-links{display:none}.menu{display:block}.nav.open .nav-links{display:flex;position:absolute;left:20px;right:20px;top:76px;background:#fff;padding:12px;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.15);flex-direction:column;align-items:stretch}.nav.open .nav-links a{color:var(--ink)}.hero-inner{grid-template-columns:1fr;gap:45px}.hero{min-height:auto}.hero-visual{max-width:700px;margin:auto}.services,.advantages{grid-template-columns:1fr 1fr}.process{grid-template-columns:repeat(3,1fr);row-gap:35px}.process:before{display:none}.industry-wrap,.about-grid,.contact-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.cta-inner{flex-direction:column;align-items:flex-start}.logo{min-width:auto}.logo img{width:160px;height:72px}}
+@media(max-width:600px){.container{width:min(100% - 28px,1180px)}.nav{padding:10px 0}.nav-inner{height:55px}.nav.open .nav-links{top:65px}.hero-inner{padding:125px 0 70px}.hero h1{font-size:48px;letter-spacing:-2px}.hero p{font-size:15px}.hero-card{transform:none}.floating-badge{left:12px;bottom:18px}.section{padding:75px 0}.services,.advantages,.vm-grid,.gallery,.about-points{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.process .step{padding-bottom:10px}.section-head{margin-bottom:35px}.cta{padding:60px 0}.footer-inner{flex-direction:column;align-items:flex-start}.wa{width:52px;height:52px;right:16px;bottom:16px}.logo img{width:145px;height:65px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo"><img src="assets/logo.jpg" alt="PT Havel Mitra International"></a>
+    <button class="menu" id="menu" aria-label="Buka menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#advantages">Keunggulan</a>
+      <a href="#process">Process</a>
+      <a href="#industries">Industri</a>
+      <a href="#products">Products</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="grid-bg"></div>
+  <div class="container hero-inner">
+    <div class="reveal">
+      <div class="eyebrow">PT Havel Mitra International</div>
+      <h1>Packaging <span>Solutions</span><br>for a Better Business.</h1>
+      <p>Solusi packaging dan industrial supply yang berkualitas, fungsional, dan dapat disesuaikan dengan kebutuhan, karakter produk, serta positioning setiap bisnis.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#services">Explore Services →</a>
+        <a class="btn btn-outline" href="https://wa.me/6283845421939" target="_blank" rel="noopener">Chat WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal delay-2">
+      <div class="hero-card"><img src="assets/slides/slide-01.jpg" alt="Company Profile PT Havel Mitra International"></div>
+      <div class="floating-badge"><div class="badge-icon">✦</div><div><strong>Professional Partner</strong><small>UMKM hingga perusahaan skala besar</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal"><img class="about-img" src="assets/slides/slide-02.jpg" alt="About Us PT Havel Mitra International"></div>
+      <div class="about-copy reveal delay-1">
+        <div class="section-head"><div class="kicker">About Us</div><h2>Packaging bukan sekadar pelindung produk.</h2></div>
+        <p>PT Havel Mitra International adalah perusahaan yang bergerak di bidang packaging dan industrial supply, berkomitmen membantu berbagai jenis bisnis menghadirkan kemasan yang berkualitas, fungsional, dan memiliki nilai tambah bagi produk.</p>
+        <p>Packaging juga menjadi bagian penting dari identitas sebuah brand. Karena itu, solusi kami dapat disesuaikan dengan kebutuhan, karakter produk, dan positioning setiap pelanggan.</p>
+        <div class="about-points">
+          <div class="point"><b>Quality</b><span>Material dan hasil akhir diperhatikan untuk memberikan perlindungan dan tampilan terbaik.</span></div>
+          <div class="point"><b>Responsive</b><span>Tim siap membantu dari konsultasi kebutuhan hingga proses pengiriman.</span></div>
+          <div class="point"><b>On-Time</b><span>Ketepatan waktu menjadi prioritas untuk menjaga kelancaran operasional bisnis.</span></div>
+          <div class="point"><b>Flexible</b><span>Solusi packaging disesuaikan dengan karakter dan kebutuhan bisnis.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="vision">
+  <div class="container">
+    <div class="section-head center reveal"><div class="kicker">Vision & Mission</div><h2>Partner bisnis yang terpercaya dan berkelanjutan.</h2><p class="lead">Berorientasi pada kualitas, profesionalisme, konsistensi, dan hubungan kerja jangka panjang.</p></div>
+    <div class="vm-grid">
+      <article class="vm-card gold reveal"><span class="num">01 — VISION</span><h3>Visi</h3><p>Menjadi mitra kerja berkelas global yang terpercaya dan unggul dalam memberikan hasil kerja berkualitas tinggi, didukung oleh tim profesional, kompeten, dan berintegritas.</p><br><p>Kami berkomitmen memberikan solusi terbaik, menjaga standar kualitas secara konsisten, serta membangun hubungan kerja yang profesional dan saling memberikan nilai bagi setiap mitra bisnis.</p></article>
+      <article class="vm-card reveal delay-1"><span class="num">02 — MISSION</span><h3>Misi</h3><ul><li>Membangun kemitraan yang profesional dan berkelanjutan dengan seluruh mitra bisnis.</li><li>Menjadi perusahaan yang kredibel dan terpercaya dengan menyediakan produk berkualitas tinggi.</li><li>Memberikan layanan yang andal dan konsisten sesuai standar internasional serta kebutuhan para mitra.</li><li>Mengembangkan sumber daya manusia yang kompeten, berintegritas, dan berorientasi pada kinerja jangka panjang.</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal"><div class="kicker">What We Do</div><h2>Produk & layanan untuk berbagai kebutuhan packaging.</h2><p class="lead">Dari custom packaging hingga industrial supply, kami membantu menyiapkan solusi sesuai kebutuhan bisnis.</p></div>
+    <div class="services">
+      <article class="service reveal"><div class="service-icon">◇</div><h3>Custom Packaging</h3><p>Kemasan berdasarkan ukuran, bentuk, material, desain, dan kebutuhan produk pelanggan.</p></article>
+      <article class="service reveal delay-1"><div class="service-icon">▣</div><h3>Packaging Box</h3><p>Berbagai jenis box untuk retail, makanan, fashion, elektronik, kosmetik, hingga corporate.</p></article>
+      <article class="service reveal delay-2"><div class="service-icon">▤</div><h3>Paper Packaging</h3><p>Solusi kemasan berbasis kertas dengan berbagai pilihan ukuran dan finishing.</p></article>
+      <article class="service reveal delay-3"><div class="service-icon">◈</div><h3>Plastic Packaging</h3><p>Solusi kemasan berbahan plastik dengan mempertimbangkan fungsi, keamanan, dan tampilan.</p></article>
+      <article class="service reveal"><div class="service-icon">◇</div><h3>Food Packaging</h3><p>Kemasan makanan dan minuman dengan desain yang dapat disesuaikan dengan kebutuhan bisnis.</p></article>
+      <article class="service reveal delay-1"><div class="service-icon">□</div><h3>Product Packaging</h3><p>Kemasan untuk memberikan perlindungan sekaligus meningkatkan daya tarik produk.</p></article>
+      <article class="service reveal delay-2"><div class="service-icon">✦</div><h3>Corporate & Promotional</h3><p>Packaging untuk perusahaan, event, hampers, merchandise, gift box, dan kebutuhan promosi.</p></article>
+      <article class="service reveal delay-3"><div class="service-icon">⚙</div><h3>Heavy Duty Caster Wheel</h3><p>Roda caster industri untuk membantu pergerakan troli, rak, dan peralatan industri.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="advantages">
+  <div class="container">
+    <div class="section-head center reveal"><div class="kicker">Why Havel</div><h2>Keunggulan PT Havel</h2></div>
+    <div class="advantages">
+      <article class="adv reveal"><span class="adv-number">01</span><div class="adv-icon">✦</div><h3>QUALITY</h3><p>Kami mengutamakan kualitas material dan hasil akhir untuk memastikan packaging memberikan perlindungan dan tampilan terbaik.</p></article>
+      <article class="adv reveal delay-1"><span class="adv-number">02</span><div class="adv-icon">◷</div><h3>ON-TIME PRODUCTION</h3><p>Ketepatan waktu menjadi salah satu prioritas untuk membantu pelanggan menjaga kelancaran operasional bisnis.</p></article>
+      <article class="adv reveal delay-2"><span class="adv-number">03</span><div class="adv-icon">◎</div><h3>PROFESSIONAL SERVICE</h3><p>Tim membantu mulai dari konsultasi kebutuhan, pemilihan material, desain, produksi hingga proses pengiriman.</p></article>
+      <article class="adv reveal delay-3"><span class="adv-number">04</span><div class="adv-icon">$</div><h3>COMPETITIVE PRICING</h3><p>Kami berusaha memberikan solusi dengan harga kompetitif tanpa mengesampingkan kualitas produk.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head reveal"><div class="kicker">How We Work</div><h2>Our process.</h2><p class="lead">Alur kerja yang terstruktur untuk menjaga kualitas dan memastikan kebutuhan packaging diterjemahkan dengan tepat.</p></div>
+    <div class="process">
+      <article class="step reveal"><div class="step-num">01</div><h3>Consultation</h3><p>Memahami kebutuhan, karakter produk, target market, dan kebutuhan packaging.</p></article>
+      <article class="step reveal delay-1"><div class="step-num">02</div><h3>Concept & Design</h3><p>Menentukan konsep, ukuran, material, bentuk, dan desain packaging.</p></article>
+      <article class="step reveal delay-2"><div class="step-num">03</div><h3>Sampling</h3><p>Membuat sample untuk memastikan ukuran, material, desain, dan fungsi sesuai.</p></article>
+      <article class="step reveal delay-3"><div class="step-num">04</div><h3>Production</h3><p>Melakukan proses produksi sesuai spesifikasi yang telah disepakati.</p></article>
+      <article class="step reveal"><div class="step-num">05</div><h3>Quality Control</h3><p>Memastikan hasil produksi sesuai spesifikasi dan standar kualitas yang disepakati.</p></article>
+      <article class="step reveal delay-1"><div class="step-num">06</div><h3>Delivery</h3><p>Packaging siap dikirim kepada pelanggan sesuai jadwal yang telah ditentukan.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="industries">
+  <div class="container">
+    <div class="industry-wrap">
+      <div class="reveal"><div class="section-head"><div class="kicker">Industries</div><h2>Untuk berbagai kategori bisnis.</h2><p class="lead">Kami melayani kebutuhan packaging dari berbagai industri dan skala bisnis.</p></div><div class="industry-list"><span class="pill">Food & Beverage</span><span class="pill">Fashion & Apparel</span><span class="pill">Beauty & Cosmetics</span><span class="pill">E-Commerce</span><span class="pill">Pharmaceutical</span><span class="pill">Lifestyle Products</span><span class="pill">Electronics</span><span class="pill">UMKM</span><span class="pill">FMCG</span></div></div>
+      <div class="industry-art reveal delay-1"><img src="assets/slides/slide-08.jpg" alt="Industri yang kami layani"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head center reveal"><div class="kicker">Product Showcase</div><h2>Our product.</h2><p class="lead">Beberapa visual produk yang tercantum pada company profile PT Havel Mitra International.</p></div>
+    <div class="gallery">
+      <div class="gallery-card reveal"><img src="assets/slides/slide-09.jpg" alt="Product showcase 01"><div class="gallery-overlay"><strong>Packaging & Food Service</strong><small>Product showcase</small></div></div>
+      <div class="gallery-card reveal delay-1"><img src="assets/slides/slide-10.jpg" alt="Product showcase 02"><div class="gallery-overlay"><strong>Packaging Materials</strong><small>Product showcase</small></div></div>
+      <div class="gallery-card reveal delay-2"><img src="assets/slides/slide-11.jpg" alt="Product showcase 03"><div class="gallery-overlay"><strong>Industrial & Packaging Supply</strong><small>Product showcase</small></div></div>
+      <div class="gallery-card reveal"><img src="assets/slides/slide-12.jpg" alt="Product showcase 04"><div class="gallery-overlay"><strong>Packaging Solutions</strong><small>Product showcase</small></div></div>
+      <div class="gallery-card reveal delay-1"><img src="assets/slides/slide-13.jpg" alt="Product showcase 05"><div class="gallery-overlay"><strong>Industrial Products</strong><small>Product showcase</small></div></div>
+      <div class="gallery-card reveal delay-2"><img src="assets/slides/slide-14.jpg" alt="Product showcase 06"><div class="gallery-overlay"><strong>Packaging Materials</strong><small>Product showcase</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-inner reveal"><div><h2>Let's build the right packaging.</h2><p>Ceritakan kebutuhan packaging Anda kepada tim PT Havel Mitra International.</p></div><a class="btn btn-primary" href="https://wa.me/6283845421939" target="_blank" rel="noopener">Start a Conversation →</a></div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head reveal"><div class="kicker">Contact Us</div><h2>Siap menjadi partner bisnis Anda.</h2><p class="lead">Hubungi kami untuk konsultasi kebutuhan packaging dan industrial supply.</p></div>
+    <div class="contact-grid">
+      <div class="contact-cards reveal">
+        <a class="contact-card" href="tel:+6283845421939"><div class="contact-icon">☎</div><div><small>Phone</small><strong>0838-4542-1939</strong></div></a>
+        <a class="contact-card" href="mailto:havelmitrainternational@gmail.com"><div class="contact-icon">✉</div><div><small>E-Mail</small><strong>havelmitrainternational@gmail.com</strong></div></a>
+        <a class="contact-card" href="https://wa.me/6283845421939" target="_blank" rel="noopener"><div class="contact-icon">◉</div><div><small>WhatsApp</small><strong>Chat dengan tim Havel</strong></div></a>
+      </div>
+      <div class="map-card reveal delay-1"><h3>Visit our office</h3><p>Ruko La Vallee Blok AA5 No. 52, Kawasan La Valle, Jalan Citra Garden Serpong, Tangerang 15344.</p><a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Ruko+La+Vallee+Blok+AA5+No.+52+Kawasan+La+Valle+Jalan+Citra+Garden+Serpong+Tangerang+15344" target="_blank" rel="noopener">Open Google Maps →</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><p><strong>PT Havel Mitra International</strong><br>Packaging Solutions for a Better Business</p><p>© <span id="year"></span> PT Havel Mitra International. All rights reserved.</p></div></footer>
+<a class="wa" href="https://wa.me/6283845421939" target="_blank" rel="noopener" aria-label="WhatsApp PT Havel Mitra International">☎</a>
+
+<div class="lightbox" id="lightbox"><button class="close" id="close" aria-label="Tutup">×</button><img id="lightboxImg" src="" alt="Product preview"></div>
+
+<script>
+const nav=document.getElementById('nav');
+const menu=document.getElementById('menu');
+const navLinks=document.getElementById('navLinks');
+const progress=document.getElementById('progress');
+const year=document.getElementById('year');
+year.textContent=new Date().getFullYear();
+
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>30);
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
+  updateActive();
+},{passive:true});
+
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+const sections=[...document.querySelectorAll('main section[id]')];
+function updateActive(){
+  let current='home';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-180) current=s.id});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')==='#'+current);
+  });
+}
+updateActive();
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightboxImg');
+const close=document.getElementById('close');
+document.querySelectorAll('.gallery-card').forEach(card=>card.addEventListener('click',()=>{
+  lightboxImg.src=card.querySelector('img').src;
+  lightbox.classList.add('open');
+}));
+function closeLightbox(){lightbox.classList.remove('open');lightboxImg.src=''}
+close.addEventListener('click',closeLightbox);
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+</script>
+</body>
+</html>
